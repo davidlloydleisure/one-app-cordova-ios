@@ -18,12 +18,12 @@
  */
 
 #import <WebKit/WebKit.h>
-#import <Cordova/CDV.h>
+#import <OneAppCordova/OneAppCDV.h>
 
-@interface CDVWebViewEngine : CDVPlugin <CDVWebViewEngineProtocol, WKScriptMessageHandler, WKNavigationDelegate>
+@interface CDVWebViewEngine : OneAppCDVPlugin <OneAppCDVWebViewEngineProtocol, WKScriptMessageHandler, WKNavigationDelegate>
 
 @property (nonatomic, strong, readonly) id <WKUIDelegate> uiDelegate;
 
-- (void)allowsBackForwardNavigationGestures:(CDVInvokedUrlCommand*)command;
+- (void)allowsBackForwardNavigationGestures:(OneAppCDVInvokedUrlCommand*)command;
 
 @end

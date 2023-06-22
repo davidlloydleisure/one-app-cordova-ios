@@ -18,14 +18,14 @@
  */
 
 #import "CDVIntentAndNavigationFilter.h"
-#import <Cordova/CDV.h>
+#import <OneAppCordova/OneAppCDV.h>
 
 @interface CDVIntentAndNavigationFilter ()
 
 @property (nonatomic, readwrite) NSMutableArray* allowIntents;
 @property (nonatomic, readwrite) NSMutableArray* allowNavigations;
-@property (nonatomic, readwrite) CDVWhitelist* allowIntentsWhitelist;
-@property (nonatomic, readwrite) CDVWhitelist* allowNavigationsWhitelist;
+@property (nonatomic, readwrite) OneAppCDVWhitelist* allowIntentsWhitelist;
+@property (nonatomic, readwrite) OneAppCDVWhitelist* allowNavigationsWhitelist;
 
 @end
 
@@ -50,7 +50,7 @@
     self.allowNavigations = [[NSMutableArray alloc] initWithArray:@[ @"file://"]];
 
     // If the custom app scheme is defined, append it to the allow navigation as default
-    NSString* scheme = ((CDVViewController*)self.viewController).appScheme;
+    NSString* scheme = ((OneAppCDVViewController*)self.viewController).appScheme;
     if (scheme) {
         [self.allowNavigations addObject: [NSString stringWithFormat:@"%@://", scheme]];
     }
@@ -61,8 +61,8 @@
 
 - (void)parserDidEndDocument:(NSXMLParser*)parser
 {
-    self.allowIntentsWhitelist = [[CDVWhitelist alloc] initWithArray:self.allowIntents];
-    self.allowNavigationsWhitelist = [[CDVWhitelist alloc] initWithArray:self.allowNavigations];
+    self.allowIntentsWhitelist = [[OneAppCDVWhitelist alloc] initWithArray:self.allowIntents];
+    self.allowNavigationsWhitelist = [[OneAppCDVWhitelist alloc] initWithArray:self.allowNavigations];
 }
 
 - (void)parser:(NSXMLParser*)parser parseErrorOccurred:(NSError*)parseError
@@ -74,12 +74,12 @@
 
 - (void)pluginInitialize
 {
-    if ([self.viewController isKindOfClass:[CDVViewController class]]) {
-        [(CDVViewController*)self.viewController parseSettingsWithParser:self];
+    if ([self.viewController isKindOfClass:[OneAppCDVViewController class]]) {
+        [(OneAppCDVViewController*)self.viewController parseSettingsWithParser:self];
     }
 }
 
-+ (CDVIntentAndNavigationFilterValue) filterUrl:(NSURL*)url intentsWhitelist:(CDVWhitelist*)intentsWhitelist navigationsWhitelist:(CDVWhitelist*)navigationsWhitelist
++ (CDVIntentAndNavigationFilterValue) filterUrl:(NSURL*)url intentsWhitelist:(OneAppCDVWhitelist*)intentsWhitelist navigationsWhitelist:(OneAppCDVWhitelist*)navigationsWhitelist
 {
     // a URL can only allow-intent OR allow-navigation, if both are specified,
     // only allow-navigation is allowed

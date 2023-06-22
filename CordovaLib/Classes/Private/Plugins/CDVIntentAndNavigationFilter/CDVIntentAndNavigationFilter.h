@@ -17,8 +17,8 @@
  under the License.
  */
 
-#import <Cordova/CDVPlugin.h>
-#import <Cordova/CDVWhitelist.h>
+#import <OneAppCordova/OneAppCDVPlugin.h>
+#import <OneAppCordova/OneAppCDVWhitelist.h>
 
 #define CDVWebViewNavigationType int
 
@@ -28,9 +28,9 @@ typedef NS_ENUM(NSInteger, CDVIntentAndNavigationFilterValue) {
     CDVIntentAndNavigationFilterValueNoneAllowed
 };
 
-@interface CDVIntentAndNavigationFilter : CDVPlugin <NSXMLParserDelegate>
+@interface CDVIntentAndNavigationFilter : OneAppCDVPlugin <NSXMLParserDelegate>
 
-+ (CDVIntentAndNavigationFilterValue) filterUrl:(NSURL*)url intentsWhitelist:(CDVWhitelist*)intentsWhitelist navigationsWhitelist:(CDVWhitelist*)navigationsWhitelist;
++ (CDVIntentAndNavigationFilterValue) filterUrl:(NSURL*)url intentsWhitelist:(OneAppCDVWhitelist*)intentsWhitelist navigationsWhitelist:(OneAppCDVWhitelist*)navigationsWhitelist;
 + (BOOL)shouldOverrideLoadWithRequest:(NSURLRequest*)request navigationType:(CDVWebViewNavigationType)navigationType filterValue:(CDVIntentAndNavigationFilterValue)filterValue;
 + (BOOL)shouldOpenURLRequest:(NSURLRequest*)request navigationType:(CDVWebViewNavigationType)navigationType;
 @end

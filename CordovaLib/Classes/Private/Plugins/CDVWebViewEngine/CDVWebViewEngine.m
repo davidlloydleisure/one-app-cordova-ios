@@ -19,9 +19,9 @@
 
 #import "CDVWebViewEngine.h"
 #import "CDVWebViewUIDelegate.h"
-#import "CDVWebViewProcessPoolFactory.h"
-#import <Cordova/NSDictionary+CordovaPreferences.h>
-#import "CDVURLSchemeHandler.h"
+#import "OneAppCDVWebViewProcessPoolFactory.h"
+#import <OneAppCordova/NSDictionary+CordovaPreferences.h>
+#import "OneAppCDVURLSchemeHandler.h"
 
 #import <objc/message.h>
 
@@ -42,7 +42,7 @@
 @property (nonatomic, strong, readwrite) UIView* engineWebView;
 @property (nonatomic, strong, readwrite) id <WKUIDelegate> uiDelegate;
 @property (nonatomic, weak) id <WKScriptMessageHandler> weakScriptMessageHandler;
-@property (nonatomic, strong) CDVURLSchemeHandler * schemeHandler;
+@property (nonatomic, strong) OneAppCDVURLSchemeHandler * schemeHandler;
 @property (nonatomic, readwrite) NSString *CDV_ASSETS_URL;
 @property (nonatomic, readwrite) Boolean cdvIsFileScheme;
 
@@ -72,7 +72,7 @@
 - (WKWebViewConfiguration*) createConfigurationFromSettings:(NSDictionary*)settings
 {
     WKWebViewConfiguration* configuration = [[WKWebViewConfiguration alloc] init];
-    configuration.processPool = [[CDVWebViewProcessPoolFactory sharedFactory] sharedProcessPool];
+    configuration.processPool = [[OneAppCDVWebViewProcessPoolFactory sharedFactory] sharedProcessPool];
     if (settings == nil) {
         return configuration;
     }
@@ -151,7 +151,7 @@
 - (void)pluginInitialize
 {
     // viewController would be available now. we attempt to set all possible delegates to it, by default
-    CDVViewController* vc = (CDVViewController*)self.viewController;
+    OneAppCDVViewController* vc = (OneAppCDVViewController*)self.viewController;
     NSDictionary* settings = self.commandDelegate.settings;
 
     NSString *scheme = [settings cordovaSettingForKey:@"scheme"];
@@ -197,7 +197,7 @@
 
     // Do not configure the scheme handler if the scheme is default (file)
     if(!self.cdvIsFileScheme) {
-        self.schemeHandler = [[CDVURLSchemeHandler alloc] initWithVC:vc];
+        self.schemeHandler = [[OneAppCDVURLSchemeHandler alloc] initWithVC:vc];
         [configuration setURLSchemeHandler:self.schemeHandler forURLScheme:scheme];
     }
 
@@ -218,7 +218,6 @@
         wkWebView.inspectable = [settings cordovaBoolSettingForKey:@"InspectableWebview" defaultValue:allowWebviewInspectionDefault];
     }
 #endif
-
     /*
      * This is where the "OverrideUserAgent" is handled. This will replace the entire UserAgent
      * with the user defined custom UserAgent.
@@ -319,7 +318,7 @@ static void * KVOContext = &KVOContext;
             NSURL* readAccessUrl = [request.URL URLByDeletingLastPathComponent];
             return [(WKWebView*)_engineWebView loadFileURL:request.URL allowingReadAccessToURL:readAccessUrl];
         } else if (request.URL.fileURL) {
-            NSURL* startURL = [NSURL URLWithString:((CDVViewController *)self.viewController).startPage];
+            NSURL* startURL = [NSURL URLWithString:((OneAppCDVViewController *)self.viewController).startPage];
             NSString* startFilePath = [self.commandDelegate pathForResource:[startURL path]];
             NSURL *url = [[NSURL URLWithString:self.CDV_ASSETS_URL] URLByAppendingPathComponent:request.URL.path];
             if ([request.URL.path isEqualToString:startFilePath]) {
@@ -470,10 +469,10 @@ static void * KVOContext = &KVOContext;
         return;
     }
 
-    CDVViewController* vc = (CDVViewController*)self.viewController;
+    OneAppCDVViewController* vc = (OneAppCDVViewController*)self.viewController;
 
     NSArray* jsonEntry = message.body; // NSString:callbackId, NSString:service, NSString:action, NSArray:args
-    CDVInvokedUrlCommand* command = [CDVInvokedUrlCommand commandFromJson:jsonEntry];
+    OneAppCDVInvokedUrlCommand* command = [OneAppCDVInvokedUrlCommand commandFromJson:jsonEntry];
     CDV_EXEC_LOG(@"Exec(%@): Calling %@.%@", command.callbackId, command.className, command.methodName);
 
     if (![vc.commandQueue execute:command]) {
@@ -517,7 +516,7 @@ static void * KVOContext = &KVOContext;
 
 - (void)webView:(WKWebView*)theWebView didFailNavigation:(WKNavigation*)navigation withError:(NSError*)error
 {
-    CDVViewController* vc = (CDVViewController*)self.viewController;
+    OneAppCDVViewController* vc = (OneAppCDVViewController*)self.viewController;
 
     NSString* message = [NSString stringWithFormat:@"Failed to load webpage with error: %@", [error localizedDescription]];
     NSLog(@"%@", message);
@@ -549,7 +548,7 @@ static void * KVOContext = &KVOContext;
 - (void) webView: (WKWebView *) webView decidePolicyForNavigationAction: (WKNavigationAction*) navigationAction decisionHandler: (void (^)(WKNavigationActionPolicy)) decisionHandler
 {
     NSURL* url = [navigationAction.request URL];
-    CDVViewController* vc = (CDVViewController*)self.viewController;
+    OneAppCDVViewController* vc = (OneAppCDVViewController*)self.viewController;
 
     /*
      * Give plugins the chance to handle the url
@@ -558,7 +557,7 @@ static void * KVOContext = &KVOContext;
     BOOL shouldAllowRequest = NO;
 
     for (NSString* pluginName in vc.pluginObjects) {
-        CDVPlugin* plugin = [vc.pluginObjects objectForKey:pluginName];
+        OneAppCDVPlugin* plugin = [vc.pluginObjects objectForKey:pluginName];
         SEL selector = NSSelectorFromString(@"shouldOverrideLoadWithRequest:navigationType:");
         if ([plugin respondsToSelector:selector]) {
             anyPluginsResponded = YES;
@@ -590,7 +589,7 @@ static void * KVOContext = &KVOContext;
 
 #pragma mark - Plugin interface
 
-- (void)allowsBackForwardNavigationGestures:(CDVInvokedUrlCommand*)command;
+- (void)allowsBackForwardNavigationGestures:(OneAppCDVInvokedUrlCommand*)command;
 {
     id value = [command argumentAtIndex:0];
     if (!([value isKindOfClass:[NSNumber class]])) {
