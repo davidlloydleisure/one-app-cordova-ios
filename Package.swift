@@ -7,7 +7,11 @@ let package = Package(
         .iOS(.v11)
     ],
     products: [
-        .library(name: "OneAppCordova", targets: ["OneAppCordova"])
+        .library(
+            name: "OneAppCordova",
+            type: .dynamic,
+            targets: ["OneAppCordova"]
+        )
     ],
     dependencies: [],
     targets: [
