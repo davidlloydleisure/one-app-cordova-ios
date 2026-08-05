@@ -17,7 +17,9 @@
  under the License.
  */
 
-#import "OneAppCDVAvailabilityDeprecated.h"
+#import <Foundation/Foundation.h>
+
+#import <OneAppCordova/OneAppCDVAvailabilityDeprecated.h>
 
 #define __CORDOVA_IOS__
 

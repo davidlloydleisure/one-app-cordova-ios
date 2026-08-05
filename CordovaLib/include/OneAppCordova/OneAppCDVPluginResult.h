@@ -18,7 +18,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "OneAppCDVAvailability.h"
+#import <OneAppCordova/OneAppCDVAvailability.h>
 
 typedef NS_ENUM(NSUInteger, OneAppCDVCommandStatus) {
     OneAppCDVCommandStatus_NO_RESULT NS_SWIFT_NAME(noResult) = 0,

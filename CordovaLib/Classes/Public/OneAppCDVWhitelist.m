@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "OneAppCDVWhitelist.h"
+#import <OneAppCordova/OneAppCDVWhitelist.h>
 
 NSString* const kCDVDefaultWhitelistRejectionString = @"ERROR whitelist rejection: url='%@'";
 NSString* const kCDVDefaultSchemeName = @"cdv-default-scheme";

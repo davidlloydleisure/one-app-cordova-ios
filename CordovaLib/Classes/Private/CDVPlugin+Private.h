@@ -17,6 +17,8 @@
  under the License.
  */
 
+#import <Foundation/Foundation.h>
+
 @interface OneAppCDVPlugin (Private)
 
 - (instancetype)initWithWebViewEngine:(id <OneAppCDVWebViewEngineProtocol>)theWebViewEngine;

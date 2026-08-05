@@ -17,14 +17,12 @@
  under the License.
  */
 
-#import "OneAppCDVAvailability.h"
-#import "OneAppCDVAvailabilityDeprecated.h"
-#import "OneAppCDVAppDelegate.h"
-#import "OneAppCDVPlugin.h"
-#import "OneAppCDVPluginResult.h"
-#import "OneAppCDVViewController.h"
-#import "OneAppCDVCommandDelegate.h"
-#import "OneAppCDVInvokedUrlCommand.h"
-#import "OneAppCDVWhitelist.h"
-#import "OneAppCDVScreenOrientationDelegate.h"
-#import "OneAppCDVTimer.h"
+#import <Foundation/Foundation.h>
+#import <OneAppCordova/OneAppCDVViewController.h>
+
+@interface OneAppCDVAppDelegate : NSObject <UIApplicationDelegate>{}
+
+@property (nonatomic, strong) IBOutlet UIWindow* window;
+@property (nonatomic, strong) IBOutlet OneAppCDVViewController* viewController;
+
+@end

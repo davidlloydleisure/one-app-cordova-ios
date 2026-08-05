@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "OneAppCDVInvokedUrlCommand.h"
+#import <OneAppCordova/OneAppCDVInvokedUrlCommand.h>
 #import "CDVJSON_private.h"
 
 @implementation OneAppCDVInvokedUrlCommand

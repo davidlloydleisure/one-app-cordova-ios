@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "OneAppCDVPluginResult.h"
+#import <OneAppCordova/OneAppCDVPluginResult.h>
 #import "CDVJSON_private.h"
 #import "CDVDebug.h"
 

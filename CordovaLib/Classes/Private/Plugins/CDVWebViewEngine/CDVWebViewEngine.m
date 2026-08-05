@@ -18,7 +18,7 @@
  */
 
 #import "CDVWebViewEngine.h"
-#import "CDVWebViewUIDelegate.h"
+#import <OneAppCordova/CDVWebViewUIDelegate.h>
 #import "OneAppCDVWebViewProcessPoolFactory.h"
 #import <OneAppCordova/NSDictionary+CordovaPreferences.h>
 #import "OneAppCDVURLSchemeHandler.h"

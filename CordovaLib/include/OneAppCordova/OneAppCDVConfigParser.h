@@ -18,11 +18,15 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "OneAppCDVViewController.h"
 
-@interface OneAppCDVAppDelegate : NSObject <UIApplicationDelegate>{}
+@interface OneAppCDVConfigParser : NSObject <NSXMLParserDelegate>
+{
+    NSString* featureName;
+}
 
-@property (nonatomic, strong) IBOutlet UIWindow* window;
-@property (nonatomic, strong) IBOutlet OneAppCDVViewController* viewController;
+@property (nonatomic, readonly, strong) NSMutableDictionary* pluginsDict;
+@property (nonatomic, readonly, strong) NSMutableDictionary* settings;
+@property (nonatomic, readonly, strong) NSMutableArray* startupPluginNames;
+@property (nonatomic, readonly, strong) NSString* startPage;
 
 @end

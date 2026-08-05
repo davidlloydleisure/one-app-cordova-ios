@@ -19,13 +19,13 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/NSJSONSerialization.h>
-#import "OneAppCDVAvailability.h"
-#import "OneAppCDVInvokedUrlCommand.h"
-#import "OneAppCDVCommandDelegate.h"
-#import "OneAppCDVCommandQueue.h"
-#import "OneAppCDVScreenOrientationDelegate.h"
-#import "OneAppCDVPlugin.h"
-#import "OneAppCDVWebViewEngineProtocol.h"
+#import <OneAppCordova/OneAppCDVAvailability.h>
+#import <OneAppCordova/OneAppCDVInvokedUrlCommand.h>
+#import <OneAppCordova/OneAppCDVCommandDelegate.h>
+#import <OneAppCordova/OneAppCDVCommandQueue.h>
+#import <OneAppCordova/OneAppCDVScreenOrientationDelegate.h>
+#import <OneAppCordova/OneAppCDVPlugin.h>
+#import <OneAppCordova/OneAppCDVWebViewEngineProtocol.h>
 
 @interface OneAppCDVViewController : UIViewController <OneAppCDVScreenOrientationDelegate>{
     @protected

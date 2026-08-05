@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "OneAppCDVPlugin+Resources.h"
+#import <OneAppCordova/OneAppCDVPlugin+Resources.h>
 
 @implementation OneAppCDVPlugin (CDVPluginResources)
 
