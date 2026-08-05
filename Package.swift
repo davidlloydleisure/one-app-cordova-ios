@@ -21,6 +21,12 @@ let package = Package(
             exclude: ["Cordova/Info.plist"],
             cSettings: [
                 .headerSearchPath("Classes/Private")
+            ],
+            linkerSettings: [
+                .linkedFramework("AssetsLibrary"),
+                .linkedFramework("MobileCoreServices"),
+                .linkedFramework("AVFoundation"),
+                .linkedFramework("CoreLocation")
             ]
         )
     ]
