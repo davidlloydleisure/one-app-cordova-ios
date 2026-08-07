@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "OneAppCDVTimer.h"
+#import <OneAppCordova/OneAppCDVTimer.h>
 
 #pragma mark CDVTimerItem
 

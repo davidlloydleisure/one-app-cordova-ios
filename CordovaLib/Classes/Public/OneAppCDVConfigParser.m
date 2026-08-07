@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "OneAppCDVConfigParser.h"
+#import <OneAppCordova/OneAppCDVConfigParser.h>
 
 @interface OneAppCDVConfigParser ()
 

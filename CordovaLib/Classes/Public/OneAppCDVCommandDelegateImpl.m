@@ -17,11 +17,11 @@
  under the License.
  */
 
-#import "OneAppCDVCommandDelegateImpl.h"
+#import <OneAppCordova/OneAppCDVCommandDelegateImpl.h>
 #import "CDVJSON_private.h"
-#import "OneAppCDVCommandQueue.h"
-#import "OneAppCDVPluginResult.h"
-#import "OneAppCDVViewController.h"
+#import <OneAppCordova/OneAppCDVCommandQueue.h>
+#import <OneAppCordova/OneAppCDVPluginResult.h>
+#import <OneAppCordova/OneAppCDVViewController.h>
 
 @implementation OneAppCDVCommandDelegateImpl
 

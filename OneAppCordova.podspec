@@ -38,8 +38,8 @@ Pod::Spec.new do |s|
   s.frameworks = 'AssetsLibrary', 'MobileCoreServices', 'AVFoundation', 'CoreLocation'
   s.default_subspec  = 'OneAppCordova'
   s.subspec 'OneAppCordova' do |cordova|
-      cordova.source_files = 'CordovaLib/Classes/**/*.{h,m}', 'CordovaLib/Cordova/Cordova.h'
-      cordova.public_header_files = 'CordovaLib/Classes/Private/Plugins/CDVWebViewEngine/CDVWebViewUIDelegate.h', 'CordovaLib/Cordova/Cordova.h', 'CordovaLib/Classes/Public/NSDictionary+CordovaPreferences.h', 'CordovaLib/Classes/Public/NSMutableArray+QueueAdditions.h', 'CordovaLib/Classes/Public/OneAppCDV.h', 'CordovaLib/Classes/Public/OneAppCDVAppDelegate.h', 'CordovaLib/Classes/Public/OneAppCDVAvailability.h', 'CordovaLib/Classes/Public/OneAppCDVAvailabilityDeprecated.h', 'CordovaLib/Classes/Public/OneAppCDVCommandDelegate.h', 'CordovaLib/Classes/Public/OneAppCDVCommandDelegateImpl.h', 'CordovaLib/Classes/Public/OneAppCDVCommandQueue.h', 'CordovaLib/Classes/Public/OneAppCDVConfigParser.h', 'CordovaLib/Classes/Public/OneAppCDVInvokedUrlCommand.h', 'CordovaLib/Classes/Public/OneAppCDVPlugin+Resources.h', 'CordovaLib/Classes/Public/OneAppCDVPlugin.h', 'CordovaLib/Classes/Public/OneAppCDVPluginResult.h', 'CordovaLib/Classes/Public/OneAppCDVScreenOrientationDelegate.h', 'CordovaLib/Classes/Public/OneAppCDVTimer.h', 'CordovaLib/Classes/Public/OneAppCDVViewController.h', 'CordovaLib/Classes/Public/OneAppCDVWebViewEngineProtocol.h', 'CordovaLib/Classes/Public/OneAppCDVWhitelist.h'
+      cordova.source_files = 'CordovaLib/Classes/**/*.{h,m}', 'CordovaLib/include/OneAppCordova/**/*.h'
+      cordova.public_header_files = 'CordovaLib/include/OneAppCordova/**/*.h'
       cordova.prefix_header_contents = ''
       cordova.requires_arc = true
   end

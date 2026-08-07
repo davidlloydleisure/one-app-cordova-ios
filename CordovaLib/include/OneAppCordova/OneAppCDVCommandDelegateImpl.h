@@ -18,7 +18,7 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "OneAppCDVCommandDelegate.h"
+#import <OneAppCordova/OneAppCDVCommandDelegate.h>
 
 @class OneAppCDVViewController;
 @class OneAppCDVCommandQueue;

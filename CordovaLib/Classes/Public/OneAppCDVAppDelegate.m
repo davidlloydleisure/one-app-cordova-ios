@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "OneAppCDVAppDelegate.h"
+#import <OneAppCordova/OneAppCDVAppDelegate.h>
 
 @implementation OneAppCDVAppDelegate
 

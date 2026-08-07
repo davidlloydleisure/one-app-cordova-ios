@@ -17,8 +17,10 @@
  under the License.
  */
 
-#import "OneAppCDVAvailability.h"
-#import "OneAppCDVInvokedUrlCommand.h"
+#import <Foundation/Foundation.h>
+
+#import <OneAppCordova/OneAppCDVAvailability.h>
+#import <OneAppCordova/OneAppCDVInvokedUrlCommand.h>
 
 @class OneAppCDVPlugin;
 @class OneAppCDVPluginResult;

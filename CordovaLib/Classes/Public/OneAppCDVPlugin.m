@@ -17,10 +17,10 @@
  under the License.
  */
 
-#import "OneAppCDVPlugin.h"
+#import <OneAppCordova/OneAppCDVPlugin.h>
 #import "CDVPlugin+Private.h"
-#import "OneAppCDVPlugin+Resources.h"
-#import "OneAppCDVViewController.h"
+#import <OneAppCordova/OneAppCDVPlugin+Resources.h>
+#import <OneAppCordova/OneAppCDVViewController.h>
 #include <objc/message.h>
 
 @implementation UIView (org_apache_cordova_UIView_Extension)

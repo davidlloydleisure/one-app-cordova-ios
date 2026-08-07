@@ -17,7 +17,7 @@
  under the License.
  */
 
-#import "CDVWebViewUIDelegate.h"
+#import <OneAppCordova/CDVWebViewUIDelegate.h>
 
 @implementation CDVWebViewUIDelegate
 

@@ -17,6 +17,8 @@
  under the License.
  */
 
+#import <Foundation/Foundation.h>
+
 #import <OneAppCordova/OneAppCDVPlugin.h>
 
 @interface CDVLaunchScreen : OneAppCDVPlugin

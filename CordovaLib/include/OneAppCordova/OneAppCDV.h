@@ -18,17 +18,15 @@
  */
 
 #import <Foundation/Foundation.h>
-#import <WebKit/WebKit.h>
-#import "OneAppCDVViewController.h"
 
-
-@interface OneAppCDVURLSchemeHandler : NSObject <WKURLSchemeHandler>
-
-@property (nonatomic, strong) OneAppCDVViewController* viewController;
-
-@property (nonatomic) OneAppCDVPlugin* schemePlugin;
-
-- (instancetype)initWithVC:(OneAppCDVViewController *)controller;
-
-
-@end
+#import <OneAppCordova/OneAppCDVAvailability.h>
+#import <OneAppCordova/OneAppCDVAvailabilityDeprecated.h>
+#import <OneAppCordova/OneAppCDVAppDelegate.h>
+#import <OneAppCordova/OneAppCDVPlugin.h>
+#import <OneAppCordova/OneAppCDVPluginResult.h>
+#import <OneAppCordova/OneAppCDVViewController.h>
+#import <OneAppCordova/OneAppCDVCommandDelegate.h>
+#import <OneAppCordova/OneAppCDVInvokedUrlCommand.h>
+#import <OneAppCordova/OneAppCDVWhitelist.h>
+#import <OneAppCordova/OneAppCDVScreenOrientationDelegate.h>
+#import <OneAppCordova/OneAppCDVTimer.h>

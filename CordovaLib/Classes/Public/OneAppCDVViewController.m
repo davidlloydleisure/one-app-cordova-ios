@@ -18,13 +18,13 @@
  */
 
 #import <objc/message.h>
-#import "OneAppCDV.h"
+#import <OneAppCordova/OneAppCDV.h>
 #import "CDVPlugin+Private.h"
-#import "CDVWebViewUIDelegate.h"
-#import "OneAppCDVConfigParser.h"
+#import <OneAppCordova/CDVWebViewUIDelegate.h>
+#import <OneAppCordova/OneAppCDVConfigParser.h>
 #import <AVFoundation/AVFoundation.h>
-#import "NSDictionary+CordovaPreferences.h"
-#import "OneAppCDVCommandDelegateImpl.h"
+#import <OneAppCordova/NSDictionary+CordovaPreferences.h>
+#import <OneAppCordova/OneAppCDVCommandDelegateImpl.h>
 #import <Foundation/NSCharacterSet.h>
 
 @interface OneAppCDVViewController () { }
